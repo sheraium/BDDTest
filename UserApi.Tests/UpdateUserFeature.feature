@@ -19,7 +19,7 @@ Scenario: Updating a non-existing user
 
 Scenario Outline: Updating a user with invalid data
 	Given that a user exists in the system
-	When I request to update the user by Id with details Name<name> Surname<surname> and Email<email>
+	When I request to update the user by Id with details Name:'<name>' Surname:'<surname>' and Email:'<email>'
 	Then the response status code is "400 Bad Request"
 	Examples: 
 	| name     | surname     | email     |

@@ -149,7 +149,8 @@ this.ScenarioInitialize(scenarioInfo);
 #line 21
  testRunner.Given("that a user exists in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 22
- testRunner.When(string.Format("I request to update the user by Id with details Name{0} Surname{1} and Email{2}", name, surname, email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("I request to update the user by Id with details Name:\'{0}\' Surname:\'{1}\' and Emai" +
+                        "l:\'{2}\'", name, surname, email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 23
  testRunner.Then("the response status code is \"400 Bad Request\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden

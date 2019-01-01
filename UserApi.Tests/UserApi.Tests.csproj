@@ -80,6 +80,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UpdateUserFeature.feature</DependentUpon>
     </Compile>
+    <Compile Include="UpdateUserFeatureSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

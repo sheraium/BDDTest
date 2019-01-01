@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using UserApi.Data.Interfaces;
+using UserApi.Entities;
 
 namespace UserApi.Api.Controllers
 {
@@ -24,5 +25,13 @@ namespace UserApi.Api.Controllers
                 return NotFound();
             }
         }
+
+        public IHttpActionResult UpdateUser(int id, string name, string surname, string email)
+        {
+            var user = new User() { Id = id, Name = name, Surname = surname, Email = email };
+            _usersRepository.UpdateById(id, user);
+            return Ok();
+        }
     }
+
 }

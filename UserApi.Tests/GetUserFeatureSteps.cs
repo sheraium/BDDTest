@@ -11,8 +11,9 @@ namespace UserApi.Tests
     [Binding]
     public class GetUserFeatureSteps
     {
-        private UsersController usersController;
-        private IHttpActionResult response;
+        ScenarioContext context = ScenarioContext.Current;
+
+        
 
         [Given(@"that a user exists in the system")]
         public void GivenThatAUserExistsInTheSystem()
@@ -20,25 +21,28 @@ namespace UserApi.Tests
             InMemoryUsersRepository repository = new InMemoryUsersRepository();
             Entities.User user = new User() { Id = 1, Email = "test@test.com", Name = "TestName", Surname = "TestSurnam" };
             repository.Add(user);
-            usersController = new UsersController(repository);
+            var usersController = new UsersController(repository);
+            context.Set(usersController);
         }
 
         [Given(@"that a user does not exist in the system")]
         public void GivenThatAUserDoesNotExistInTheSystem()
         {
             InMemoryUsersRepository repository = new InMemoryUsersRepository();
-            usersController = new UsersController(repository);
+            context.Set(new UsersController(repository));
         }
 
         [When(@"I request to get the user by Id")]
         public void WhenIRequestToGetTheUserById()
         {
-            response = usersController.GetUser(1);
+            var usersController = context.Get<UsersController>();
+            context.Set(usersController.GetUser(1));
         }
 
         [Then(@"the user should be returned in the response")]
         public void ThenTheUserShouldBeReturnedInTheResponse()
         {
+            var response = context.Get<IHttpActionResult>();
             var user = response as OkNegotiatedContentResult<User>;
             Assert.AreEqual(user.Content.Id, 1);
         }
@@ -46,6 +50,7 @@ namespace UserApi.Tests
         [Then(@"the response status code is ""(.*)""")]
         public void ThenTheResponseStatusCodeIs(string p0)
         {
+            var response = context.Get<IHttpActionResult>();
             if (p0 == "200 OK")
             {
                 var resp = response as OkNegotiatedContentResult<User>;
@@ -61,6 +66,7 @@ namespace UserApi.Tests
         [Then(@"no user should be returned in the response")]
         public void ThenNoUserShouldBeReturnedInTheResponse()
         {
+            var response = context.Get<IHttpActionResult>();
             var resp = response as NotFoundResult;
             Assert.IsNotNull(resp);
         }

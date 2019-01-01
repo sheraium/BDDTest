@@ -106,7 +106,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 10
  testRunner.Then("the user should be returned in the response", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 11
- testRunner.And("the response status code is \"200 OK\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the response status code is \'200 OK\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -127,7 +127,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 16
  testRunner.Then("no user should be returned in the response", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 17
- testRunner.And("the response status code is \"404 Not Found\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the response status code is \'404 Not Found\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -1,6 +1,10 @@
-﻿using TechTalk.SpecFlow;
+﻿using System.Web.Http;
+using System.Web.Http.Results;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 using UserApi.Api.Controllers;
+using UserApi.Entities;
 
 namespace UserApi.Tests
 {
@@ -14,20 +18,24 @@ namespace UserApi.Tests
         {
             var updateData = table.CreateInstance<UpdateUserDataTable>();
             var userController = context.Get<UsersController>();
-            userController.UpdateUser(1, updateData.Name, updateData.Surname, updateData.Email);
-
+            var response = userController.UpdateUser(1, updateData.Name, updateData.Surname, updateData.Email);
+            context.Set(response);
         }
 
         [When(@"I request to update the user by Id with details Name: '(.*)' Surname: '(.*)' and Email: '(.*)'")]
         public void WhenIRequestToUpdateTheUserByIdWithDetailsNameSurnameAndEmail(string p0, string p1, string p2)
         {
-            ScenarioContext.Current.Pending();
+            var usersController = context.Get<UsersController>();
+            var response = usersController.UpdateUser(1, p0, p1, p2);
+            context.Set(response);
         }
 
         [Then(@"the user should be updated")]
         public void ThenTheUserShouldBeUpdated()
         {
-            ScenarioContext.Current.Pending();
+            var response = context.Get<IHttpActionResult>();
+            var resp = response as OkResult;
+            Assert.IsNotNull(resp);
         }
     }
 

@@ -47,18 +47,24 @@ namespace UserApi.Tests
             Assert.AreEqual(user.Content.Id, 1);
         }
 
-        [Then(@"the response status code is ""(.*)""")]
+        [Then(@"the response status code is '(.*)'")]
         public void ThenTheResponseStatusCodeIs(string p0)
         {
             var response = context.Get<IHttpActionResult>();
             if (p0 == "200 OK")
             {
                 var resp = response as OkNegotiatedContentResult<User>;
-                Assert.IsNotNull(resp);
+                var resp2 = response as OkResult;
+                Assert.IsFalse(resp == null && resp2 == null);
             }
             else if (p0 == "404 Not Found")
             {
                 var resp = response as NotFoundResult;
+                Assert.IsNotNull(resp);
+            }
+            else if( p0=="400 Bad Request")
+            {
+                var resp = response as BadRequestResult;
                 Assert.IsNotNull(resp);
             }
         }

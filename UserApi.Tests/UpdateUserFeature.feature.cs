@@ -115,7 +115,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 12
  testRunner.Then("the user should be updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 13
- testRunner.And("the response status code is \"200 OK\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the response status code is \'200 OK\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -135,7 +135,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("I request to update the user by Id with details Name: \'TestName\' Surname: \'TestSu" +
                     "rname\' and Email: \'TestEmail\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 18
- testRunner.Then("the response status code is \"404 Not Found\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the response status code is \'404 Not Found\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -152,7 +152,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When(string.Format("I request to update the user by Id with details Name:\'{0}\' Surname:\'{1}\' and Emai" +
                         "l:\'{2}\'", name, surname, email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 23
- testRunner.Then("the response status code is \"400 Bad Request\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the response status code is \'400 Bad Request\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -210,20 +210,6 @@ this.UpdatingAUserWithInvalidData("", "TestSurname", "TestEmail", ((string[])(nu
         {
 #line 20
 this.UpdatingAUserWithInvalidData("", "", "TestEmail", ((string[])(null)));
-#line hidden
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Updating a user with invalid data: Variant 4")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "UpdateUserFeature")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 4")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:surname", "")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:email", "")]
-        public virtual void UpdatingAUserWithInvalidData_Variant4()
-        {
-#line 20
-this.UpdatingAUserWithInvalidData("", "", "", ((string[])(null)));
 #line hidden
         }
     }

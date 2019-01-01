@@ -50,8 +50,18 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
     <Reference Include="TechTalk.SpecFlow, Version=2.4.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
       <HintPath>..\packages\SpecFlow.2.4.0\lib\net45\TechTalk.SpecFlow.dll</HintPath>
@@ -63,6 +73,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GetUserFeature.feature</DependentUpon>
     </Compile>
+    <Compile Include="GetUserFeatureSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +83,24 @@
       <LastGenOutput>GetUserFeature.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UserApi.Api\UserApi.Api.csproj">
+      <Project>{b022b476-fa0d-4e8e-a8d7-fa6bd0063f81}</Project>
+      <Name>UserApi.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UserApi.Contracts\UserApi.Contracts.csproj">
+      <Project>{0a6123a1-e5ee-47e7-92a1-73f90e50d4bc}</Project>
+      <Name>UserApi.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UserApi.Data\UserApi.Data.csproj">
+      <Project>{4dc6f36e-a0b5-4cf6-95a6-bb7f7b917950}</Project>
+      <Name>UserApi.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UserApi.Entities\UserApi.Entities.csproj">
+      <Project>{49932307-4f11-4637-a92f-188911040263}</Project>
+      <Name>UserApi.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

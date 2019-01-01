@@ -91,15 +91,13 @@ namespace UserApi.Tests
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Updating a user with valid data")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "UpdateUserFeature")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("mytag")]
         public virtual void UpdatingAUserWithValidData()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Updating a user with valid data", null, new string[] {
-                        "mytag"});
-#line 7
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Updating a user with valid data", null, ((string[])(null)));
+#line 6
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 8
+#line 7
  testRunner.Given("that a user exists in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -110,11 +108,11 @@ this.ScenarioInitialize(scenarioInfo);
                         "TestName",
                         "TestSurname",
                         "TestEmail"});
-#line 9
+#line 8
  testRunner.When("I request to update the user by Id with details", ((string)(null)), table1, "When ");
-#line 12
+#line 11
  testRunner.Then("the user should be updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 13
+#line 12
  testRunner.And("the response status code is \'200 OK\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -126,15 +124,15 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void UpdatingANon_ExistingUser()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Updating a non-existing user", null, ((string[])(null)));
-#line 15
+#line 14
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 16
+#line 15
  testRunner.Given("that a user does not exist in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 17
+#line 16
  testRunner.When("I request to update the user by Id with details Name: \'TestName\' Surname: \'TestSu" +
                     "rname\' and Email: \'TestEmail\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 18
+#line 17
  testRunner.Then("the response status code is \'404 Not Found\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -143,15 +141,15 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void UpdatingAUserWithInvalidData(string name, string surname, string email, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Updating a user with invalid data", null, exampleTags);
-#line 20
+#line 19
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 21
+#line 20
  testRunner.Given("that a user exists in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 21
+ testRunner.When(string.Format("I request to update the user by Id with details Name: \'{0}\' Surname: \'{1}\' and Em" +
+                        "ail: \'{2}\'", name, surname, email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 22
- testRunner.When(string.Format("I request to update the user by Id with details Name:\'{0}\' Surname:\'{1}\' and Emai" +
-                        "l:\'{2}\'", name, surname, email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 23
  testRunner.Then("the response status code is \'400 Bad Request\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -166,7 +164,7 @@ this.ScenarioInitialize(scenarioInfo);
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:email", "")]
         public virtual void UpdatingAUserWithInvalidData_Variant0()
         {
-#line 20
+#line 19
 this.UpdatingAUserWithInvalidData("TestName", "TestSurname", "", ((string[])(null)));
 #line hidden
         }
@@ -180,7 +178,7 @@ this.UpdatingAUserWithInvalidData("TestName", "TestSurname", "", ((string[])(nul
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:email", "TestEmail")]
         public virtual void UpdatingAUserWithInvalidData_Variant1()
         {
-#line 20
+#line 19
 this.UpdatingAUserWithInvalidData("TestName", "", "TestEmail", ((string[])(null)));
 #line hidden
         }
@@ -194,7 +192,7 @@ this.UpdatingAUserWithInvalidData("TestName", "", "TestEmail", ((string[])(null)
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:email", "TestEmail")]
         public virtual void UpdatingAUserWithInvalidData_Variant2()
         {
-#line 20
+#line 19
 this.UpdatingAUserWithInvalidData("", "TestSurname", "TestEmail", ((string[])(null)));
 #line hidden
         }
@@ -208,8 +206,22 @@ this.UpdatingAUserWithInvalidData("", "TestSurname", "TestEmail", ((string[])(nu
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:email", "TestEmail")]
         public virtual void UpdatingAUserWithInvalidData_Variant3()
         {
-#line 20
+#line 19
 this.UpdatingAUserWithInvalidData("", "", "TestEmail", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Updating a user with invalid data: Variant 4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "UpdateUserFeature")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:surname", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:email", "")]
+        public virtual void UpdatingAUserWithInvalidData_Variant4()
+        {
+#line 19
+this.UpdatingAUserWithInvalidData("", "", "", ((string[])(null)));
 #line hidden
         }
     }

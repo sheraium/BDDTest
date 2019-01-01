@@ -3,7 +3,6 @@
 	As on API Consumer
 	I want to be able to update a user's information through the API
 
-@mytag
 Scenario: Updating a user with valid data
 	Given that a user exists in the system
 	When I request to update the user by Id with details
@@ -15,11 +14,11 @@ Scenario: Updating a user with valid data
 Scenario: Updating a non-existing user
 	Given that a user does not exist in the system
 	When I request to update the user by Id with details Name: 'TestName' Surname: 'TestSurname' and Email: 'TestEmail'
-	Then  the response status code is '404 Not Found'
+	Then the response status code is '404 Not Found'
 
 Scenario Outline: Updating a user with invalid data
 	Given that a user exists in the system
-	When I request to update the user by Id with details Name:'<name>' Surname:'<surname>' and Email:'<email>'
+	When I request to update the user by Id with details Name: '<name>' Surname: '<surname>' and Email: '<email>'
 	Then the response status code is '400 Bad Request'
 	Examples: 
 	| name     | surname     | email     |
@@ -27,3 +26,4 @@ Scenario Outline: Updating a user with invalid data
 	| TestName |             | TestEmail |
 	|          | TestSurname | TestEmail |
 	|          |             | TestEmail |
+	|          |             |           |

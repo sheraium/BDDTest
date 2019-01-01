@@ -75,6 +75,11 @@
     </Compile>
     <Compile Include="GetUserFeatureSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpdateUserFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UpdateUserFeature.feature</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -83,6 +88,10 @@
       <LastGenOutput>GetUserFeature.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="UpdateUserFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UpdateUserFeature.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UserApi.Api\UserApi.Api.csproj">
